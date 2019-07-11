@@ -1,0 +1,234 @@
+header {
+    background-color:#111186;
+    position: relative;
+    display: block;
+    height: 62px;
+    width: 100%;
+}
+header span img{
+    padding: 44px 0px 0px 232px;
+    background-image: url(/images/logo-almundo.svg);
+    background-repeat: no-repeat;
+    margin: 10px;
+    background-size: 190px;
+}
+body {
+    background-color: #f2f2f2;
+}
+body > div {
+    /* position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    float: left;
+    width: 50%;
+    box-sizing: border-box; */
+}
+body > div > span > a{
+    text-decoration: none;
+    color: #4c4ccc; 
+}
+body > div > span > a > i{
+    margin-bottom: 2px;
+}
+body > div > div.ordenar{
+    padding: 25px 10px 10px 0px;
+    text-align: center;
+}
+body > div > div.ordenar select{
+    padding: 4px 4px;
+    background-color: white;
+}
+body > div > span {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #544747;
+}
+body div .contenedor {
+    background-color: white;
+    padding: 8px 0px 8px 8px;
+    width: 920px;
+    -webkit-box-sizing: border-box;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+body div .contenedor > div {
+    position: relative;
+    display: inline-block;
+    width: 32%;
+    max-height: 210px;
+    vertical-align: middle;
+    text-align: center;
+}
+body div .contenedor > div .contenedor-imagen {
+    /* width: 220px; */
+}
+body div .contenedor div:nth-child(2) {
+    text-align: left;
+    vertical-align: top;
+    padding: 0px 14px;
+}
+body div .contenedor div:nth-child(2) .nombre-hotel{
+    padding-bottom: 4px;
+}
+body div .contenedor div:nth-child(2) .iconos{
+    padding-top: 16px;
+}
+body div .contenedor div:nth-child(2) .iconos img {
+    padding-right: 12px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+body div .contenedor > div:last-child {
+    border-left: 1px dashed #dad6d6;
+    text-align: center;
+}
+body div .contenedor div > span {
+    position: relative;
+    display: block;
+}
+body div .contenedor div img {
+    max-height: 200px;
+    width: 100%;
+}
+body div .contenedor div span.precio {
+    font-size: 24px;
+    color: #d0610e;
+}
+body div .contenedor div span.precio strong {
+    font-size: 40px;
+    color: #d0610e;
+    font-weight: 700;
+}
+body div .contenedor div > span.texto-simple {
+    font-size: 14px;
+}
+body div .contenedor div > span button {
+    background-color: #111186;
+    color: white;
+    font-size: 20px;
+    padding: 10px 46px;
+    font-weight: 700;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+body div .contenedor div > span.nombre-hotel {
+    font-size: 18px;
+    color: #544747;
+    font-weight: 700;
+}
+body div .contenedor div > span img.star {
+    background-color: #ffb500cf;
+    -webkit-mask:  url(/icons/filters/star.svg) no-repeat;
+    mask: url(/icons/filters/star.svg) no-repeat;
+    padding: 18px 0px 0px 18px;
+    margin-right: 2px;
+    width: 0px;
+}
+body div .filtros div {
+    display: inline-block;
+    position: relative;
+    padding: 5px;
+}
+body div .filtros {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 26px; 
+}
+body div .hoteles {
+    width: 70%;
+    float: right;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 26px;
+}
+body div .filtros span {
+    width: 298px;
+    padding: 4px 4px;
+    height: 30px;
+    margin-top: 4px;
+    background-color: white;
+    text-align: left;
+    font-size: 16px;
+}
+body div .filtros div {
+    background-color: white;
+    width: 296px;
+}
+body div .filtros > span > label {
+    color: #2474bd;
+    cursor: pointer;
+    font-size: 14px; 
+}
+body div .filtros > div > input {
+    padding: 8px 4px;
+    margin-left: 16px;
+    width: 154px;
+    height: 10px;
+}
+body div .filtros > div > label > input {
+    margin-right: 10px;
+}
+body div .filtros > div > label > input[type='checkbox']::after {
+    background: #5F95FC;
+	content: none;
+    color: #fff;
+}
+body div .filtros > div > button {
+    background-color: #111186;
+    color: white;
+    cursor: pointer;
+    margin-left: 16px;
+    font-size: 14px;
+    width: 68px;
+    height: 30px;
+    font-weight: 700;
+    border: none;
+}
+body div .filtros div label {
+    display: block;
+    margin-bottom: 12px;
+    margin-left: 8px;
+}
+body div .filtros div label.all-stars{
+    font-weight: 700;
+    font-size: 14px;
+}
+body div .filtros img.star.principal {
+    background-color: #2474bd;
+    vertical-align: middle;
+    padding: 16px 2px 0px 16px;
+    text-align: center;
+    margin: 0px 8px 4px 8px;
+}
+body div .filtros img.star {
+    background-color: #ffb500cf;
+    -webkit-mask:  url(/icons/filters/star.svg) no-repeat;
+    mask: url(/icons/filters/star.svg) no-repeat;
+    padding: 14px 0px 0px 14px;
+    margin-right: 8px;
+}
+body div .filtros img.search {
+    background-color: #2474bd;
+    vertical-align: middle;
+    padding: 16px 2px 0px 16px;
+    text-align: center;
+    margin-bottom: 4px;
+    -webkit-mask:  url(/icons/filters/search.svg) no-repeat;
+    mask: url(/icons/filters/search.svg) no-repeat;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+body div span span {
+    margin-left: 8px;
+    vertical-align: middle;
+}
