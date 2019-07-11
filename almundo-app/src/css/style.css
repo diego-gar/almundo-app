@@ -15,14 +15,6 @@ header span img{
 body {
     background-color: #f2f2f2;
 }
-body > div {
-    /* position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    float: left;
-    width: 50%;
-    box-sizing: border-box; */
-}
 body > div > span > a{
     text-decoration: none;
     color: #4c4ccc; 
@@ -63,9 +55,6 @@ body div .contenedor > div {
     max-height: 210px;
     vertical-align: middle;
     text-align: center;
-}
-body div .contenedor > div .contenedor-imagen {
-    /* width: 220px; */
 }
 body div .contenedor div:nth-child(2) {
     text-align: left;

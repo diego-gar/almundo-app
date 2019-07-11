@@ -11,5 +11,7 @@ Para generar versión productiva de la aplicación.
 ## Stack utilizado
 
 ReactJS
+Axios
 NodeJS
-npm
+Express
+NPM
