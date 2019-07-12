@@ -51,15 +51,18 @@ body div .contenedor {
 body div .contenedor > div {
     position: relative;
     display: inline-block;
-    width: 32%;
     max-height: 210px;
     vertical-align: middle;
     text-align: center;
+}
+body div .contenedor div:nth-child(1) {
+    width: 300px;
 }
 body div .contenedor div:nth-child(2) {
     text-align: left;
     vertical-align: top;
     padding: 0px 14px;
+    width: 348px;
 }
 body div .contenedor div:nth-child(2) .nombre-hotel{
     padding-bottom: 4px;
@@ -76,6 +79,7 @@ body div .contenedor div:nth-child(2) .iconos img {
 body div .contenedor > div:last-child {
     border-left: 1px dashed #dad6d6;
     text-align: center;
+    width: 232px;
 }
 body div .contenedor div > span {
     position: relative;
@@ -110,8 +114,8 @@ body div .contenedor div > span button {
     margin: 10px;
 }
 body div .contenedor div > span.nombre-hotel {
-    font-size: 18px;
-    color: #544747;
+    font-size: 16px;
+    color: #2474bd;
     font-weight: 700;
 }
 body div .contenedor div > span img.star {
@@ -130,7 +134,7 @@ body div .filtros div {
 body div .filtros {
     display: inline-block;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 16px;
     margin-left: 26px; 
 }
 body div .hoteles {
@@ -204,7 +208,7 @@ body div .filtros img.star {
     -webkit-mask:  url(/icons/filters/star.svg) no-repeat;
     mask: url(/icons/filters/star.svg) no-repeat;
     padding: 14px 0px 0px 14px;
-    margin-right: 8px;
+    margin-right: 4px;
 }
 body div .filtros img.search {
     background-color: #2474bd;
