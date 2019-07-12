@@ -88,6 +88,7 @@ let validateLimit = cantidadHoteles => {
 };
 
 module.exports = {
+    getAllHotels,
     getFilteredHotels,
     getSingleHotel,
     addHotel,
