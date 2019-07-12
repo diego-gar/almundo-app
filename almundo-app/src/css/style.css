@@ -144,6 +144,14 @@ body div .hoteles {
     margin-top: 20px;
     margin-right: 26px;
 }
+body div .hoteles span.sin-resultados{
+    border: 1px solid #dad6d6;
+    background-color: white;
+    padding: 10px 10px 10px 6px;
+    vertical-align: middle;
+    width: 420px;
+    display: block;
+}
 body div .filtros span {
     width: 298px;
     padding: 4px 4px;

@@ -16,6 +16,7 @@ class ListadoComponent extends Component {
         return (
             <div className="hoteles">
                 {hotels.map((hotel,index) => <HotelBoxComponent key={index} hotel={hotel} />)}
+                {hotels.length === 0 ? <div><span className="sin-resultados">Uy, no encontramos resultados. Podes cambiar o borrar los filtros</span></div> : ""}
             </div>
         );
     }
