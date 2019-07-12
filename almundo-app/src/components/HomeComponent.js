@@ -10,6 +10,7 @@ class HomeComponent extends Component {
         super(props);
 
         this.state = {
+            enableSinResultados: false,
             hotels: [],
             filteredHotelsByName: null,
             filteredHotelsByPrice: 99999,
@@ -25,6 +26,7 @@ class HomeComponent extends Component {
         getAllHotels().then(res => {
             this.setState({
                 hotels: res.data.hotels,
+                enableSinResultados: true
             });
         });
     }
@@ -61,13 +63,13 @@ class HomeComponent extends Component {
     };
 
     render() {
-        const { hotels } = this.state;
+        const { hotels, enableSinResultados } = this.state;
 
         return (
             <body>
                 <HeaderComponent/>
                 <FiltrosComponent onSearchName={this.handleInputName} onSearchStars={this.handleInputStars}/>
-                <ListadoComponent hotels={hotels}/>
+                <ListadoComponent hotels={hotels} enableSinResultados={enableSinResultados}/>
                 <footer>
                 </footer>
             </body>
