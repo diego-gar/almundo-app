@@ -1,4 +1,5 @@
 const dataJson = require("./data/data.json");
+const { validateName, validatePrice, validateStars} = require("./validator");
 
 let getAllHotels = () => {
     return {
@@ -63,42 +64,30 @@ let deleteHotel = id => {
     return {"Status": `Hotel ${id} eliminado correctamente`};
 };
 
-let capitalize = (s) => {
-    if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
-}
-
 let getFilteredHotels = params => {
+    let cantidadHoteles = 0;
+    
     return getAllHotels().hotels.filter(hotel => {
-        return validateName(hotel, params) && validateStars(hotel, params) && validatePrice(hotel, params);
+        if(
+            validateName(hotel, params) && 
+            validateStars(hotel, params) && 
+            validatePrice(hotel, params) &&
+            validateLimit(cantidadHoteles)
+        ) {
+            cantidadHoteles++;
+            return true;
+        }
+
+        return false;
     });
 }
 
-let validateName = (hotel, params) => {
-    if(params.name) {
-        return hotel.name.includes(params.name) || hotel.name.includes(capitalize(params.name));
-    }
-    return true;
-}
-
-let validateStars = (hotel, params) => {
-    if(params.stars) {
-        const starsToFilter = params.stars.split(",").map(elem => parseInt(elem.trim()));
-        return starsToFilter.includes(0) || starsToFilter.includes(hotel.stars);
-    }
-
-    return true;
-}
-
-let validatePrice = (hotel, params) => {
-    if(params.price) {
-        return parseInt(hotel.price) <= parseInt(params.price);
-    }
-    return true;
-}
+let validateLimit = cantidadHoteles => {
+    const limit = 20;
+    return cantidadHoteles < limit;
+};
 
 module.exports = {
-    getAllHotels,
     getFilteredHotels,
     getSingleHotel,
     addHotel,

@@ -3,7 +3,7 @@ import HeaderComponent from "./HeaderComponent";
 import ListadoComponent from "./ListadoComponent";
 import FiltrosComponent from "./FiltrosComponent";
 import '../css/style.css';
-import { getAllHotels, getFilteredHotels } from "../services/hotels";
+import { getFilteredHotels } from "../services/hotels";
 
 class HomeComponent extends Component {
     constructor(props){
@@ -19,34 +19,29 @@ class HomeComponent extends Component {
     }
 
     componentDidMount(){
-        this.getData();
+        this.searchHotels();
     }
 
-    getData = () => {
-        getAllHotels().then(res => {
-            this.setState({
-                hotels: res.data.hotels,
-                enableSinResultados: true
-            });
-        });
-    }
-
-    searchHotels = () => {
+    getParams = () => {
         const params = {
             name: this.state.filteredHotelsByName,
             price: this.state.filteredHotelsByPrice,
             stars: this.state.filteredHotelsByStars
         };
 
-        getFilteredHotels(params).then(res => {
+        return params;
+    };
+
+    searchHotels = () => {
+        getFilteredHotels(this.getParams()).then(res => {
             this.setState({
                 hotels: res.data,
+                enableSinResultados: res.data.length === 0
             });
         });
     };
 
     handleInputName = name => {
-        console.log(name);
         this.setState({
             filteredHotelsByName: name,
         }, () => {
