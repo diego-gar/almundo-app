@@ -73,7 +73,7 @@ class FiltrosComponent extends Component {
                 <span><span>Filtros</span></span>
                 <span onClick={this.mostrarFiltroNombre}><img alt="" className="search"/><label>Nombre de hotel</label></span>
                 {showFilterName ? <div><input onChange={this.handleInputName} placeholder="Ingrese nombre del hotel"/><button onClick={this.searchHotelsByName}>Aceptar</button></div> : ""}
-                <span onClick={this.mostrarFiltroStars}><img alt="" className="star principal"/><label>Estrellas</label></span>
+        <span onClick={this.mostrarFiltroStars}><img alt="" className="star principal"/><label>Estrellas</label></span>
                 {showFilterStars ? 
                 <div>
                     <label className="all-stars"><input onClick={this.handelInputStars} type="checkbox" value="0"/>Todas las estrellas</label>

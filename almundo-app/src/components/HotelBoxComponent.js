@@ -47,7 +47,7 @@ class HotelBoxComponent extends Component {
                 </div>
                 <div>
                     <span className="texto-simple">Precio por noche por habitación</span>
-                    <span className="precio"> ARS <strong>{price}</strong></span>
+                    <span className="precio"> <span className="moneda">ARS</span> <strong>{price}</strong></span>
                     <span><button>Ver hotel</button></span>
                 </div>
             </div>
