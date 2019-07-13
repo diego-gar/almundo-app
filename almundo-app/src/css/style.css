@@ -43,7 +43,7 @@ body > div > span {
 }
 body div .contenedor {
     background-color: white;
-    padding: 8px;
+    padding: 8px 0px 8px 8px;
     width: 920px;
     -webkit-box-sizing: border-box;
     overflow: auto;
@@ -86,7 +86,7 @@ body div .contenedor > div:last-child {
     border-left: 1px dashed #dad6d6;
     text-align: center;
     width: 232px;
-    padding-left: 2px;
+    padding-left: 4px;
 }
 body div .contenedor div > span {
     position: relative;
@@ -173,6 +173,11 @@ body div .filtros span {
     text-align: left;
     font-size: 16px;
 }
+body div .filtros span p {
+    margin: 6px 0px 0px 10px;
+    font-size: 15px;
+    cursor: default;
+}
 body div .filtros div {
     background-color: white;
     width: 286px;
@@ -180,7 +185,9 @@ body div .filtros div {
 body div .filtros > span > label {
     color: #2474bd;
     cursor: pointer;
-    font-size: 14px; 
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 6px; 
 }
 body div .filtros > div > input {
     padding: 8px 4px;

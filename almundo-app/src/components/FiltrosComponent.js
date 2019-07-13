@@ -70,7 +70,7 @@ class FiltrosComponent extends Component {
                
         return (
             <div className="filtros">
-                <span><span>Filtros</span></span>
+                <span><p>Filtros</p></span>
                 <span onClick={this.mostrarFiltroNombre}><img alt="" className="search"/><label>Nombre de hotel</label></span>
                 {showFilterName ? <div><input onChange={this.handleInputName} placeholder="Ingrese nombre del hotel"/><button onClick={this.searchHotelsByName}>Aceptar</button></div> : ""}
         <span onClick={this.mostrarFiltroStars}><img alt="" className="star principal"/><label>Estrellas</label></span>
