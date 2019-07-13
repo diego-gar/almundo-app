@@ -24,6 +24,6 @@ Para generar versión productiva de la aplicación con minificacion de archivos.
 ### Aclaraciones
 #### Se toma como limite un total de 20 resultados
 
-### TODO
+### Pendientes
 #### Agregar capa de persistencia al CRUD
 #### Realizar paginado de resultados 
