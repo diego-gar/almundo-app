@@ -1,5 +1,5 @@
 require('./config/config');
-const { getAllHotels, getFilteredHotels, getSingleHotel, addHotel, updateHotel, deleteHotel } = require('./mockData/dataHandler');
+const { getAllHotels, getFilteredHotels, getHotel, addHotel, updateHotel, deleteHotel } = require('./mockData/dataHandler');
 const express = require('express');
 const app = express();
 var cors = require('cors')
@@ -21,19 +21,19 @@ app.get('/hotels/search', function(req, res) {
     res.json(getFilteredHotels(req.query));
 });
 
-app.get('/hotels/hotel_id', function(req, res) {
-    res.json(getSingleHotel(req.query.id));
+app.get('/hotels/hotel', function(req, res) {
+    res.json(getHotel(req.query.id));
 });
 
-app.put('/hotels/hotel_id', function(req, res) {
+app.put('/hotels/hotel', function(req, res) {
     res.json(updateHotel(req.query));
 });
 
-app.delete('/hotels/hotel_id', function(req, res) {
+app.delete('/hotels/hotel', function(req, res) {
     res.json(deleteHotel(req.query.id));
 });
 
-app.post('/hotels/hotel_id', function(req, res) {
+app.post('/hotels/hotel', function(req, res) {
     res.json(addHotel(req.query));
 });
 

@@ -1,5 +1,5 @@
 const dataJson = require("./data/data.json");
-const { validateName, validatePrice, validateStars} = require("./validator");
+const { validateName, validatePrice, validateStars, validateLimit} = require("./validator");
 
 let getAllHotels = () => {
     return {
@@ -11,6 +11,16 @@ let getSingleHotel = id => {
     return getAllHotels().hotels.filter(hotel => {
         return id === hotel.id;
     });
+};
+
+let getHotel = id => {
+    let hotel = getSingleHotel(id);
+
+    if((hotel.length === 0) || !hotel[0].id) {
+        return {"Error": "Hotel inválido"};
+    }
+
+    return hotel;
 };
 
 let addHotel = params => {
@@ -41,7 +51,7 @@ let addHotel = params => {
 let updateHotel = params => {
     let hotel = getSingleHotel(params.id);
     
-    if(!hotel.id) {
+    if((hotel.length === 0) || !hotel[0].id) {
         return {"Error": "Hotel inválido"};
     }
 
@@ -52,9 +62,9 @@ let updateHotel = params => {
 };
 
 let deleteHotel = id => {
-    let hotel = this.getSingleHotel(id);
+    let hotel = getSingleHotel(id);
 
-    if(!hotel.id) {
+    if((hotel.length === 0) || !hotel[0].id) {
         return {"Error": "Hotel inválido"};
     }
 
@@ -82,15 +92,10 @@ let getFilteredHotels = params => {
     });
 }
 
-let validateLimit = cantidadHoteles => {
-    const limit = 20;
-    return cantidadHoteles < limit;
-};
-
 module.exports = {
     getAllHotels,
     getFilteredHotels,
-    getSingleHotel,
+    getHotel,
     addHotel,
     updateHotel,
     deleteHotel

@@ -21,6 +21,11 @@ let validatePrice = (hotel, params) => {
     return true;
 }
 
+let validateLimit = cantidadHoteles => {
+    const limit = 20;
+    return cantidadHoteles < limit;
+};
+
 let capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
@@ -29,5 +34,6 @@ let capitalize = (s) => {
 module.exports = {
     validateName,
     validatePrice,
-    validateStars
+    validateStars,
+    validateLimit
 }
