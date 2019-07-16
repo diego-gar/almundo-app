@@ -14,27 +14,27 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/hotels/all', function(req, res) {
-    res.json(getAllHotels());
+    res.json(getAllHotels(res));
 });
 
 app.get('/hotels/search', function(req, res) {
-    res.json(getFilteredHotels(req.query));
+    getFilteredHotels(req.query);
 });
 
 app.get('/hotels/hotel', function(req, res) {
-    res.json(getHotel(req.query.id));
+    getHotel(req.query.id, res);
 });
 
 app.put('/hotels/hotel', function(req, res) {
-    res.json(updateHotel(req.query));
+    updateHotel(req.query, res);
 });
 
 app.delete('/hotels/hotel', function(req, res) {
-    res.json(deleteHotel(req.query.id));
+    deleteHotel(req.query.id, res);
 });
 
 app.post('/hotels/hotel', function(req, res) {
-    res.json(addHotel(req.query));
+    addHotel(req.query, res);
 });
 
 app.listen(process.env.PORT, () => {
