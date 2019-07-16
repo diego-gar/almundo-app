@@ -96,14 +96,28 @@ let addHotel = (params,res) => {
     });
 };
 
-let updateHotel = (params,res) => {
-    let hotel = getSingleHotel(params.id);
+let updateHotel = (req,res) => {
+    let id = req.params.id;
+    let body = req.body;
     
-    if((hotel.length === 0) || !hotel[0].id) {
-        res.status(400).json({"Error": "Hotel inválido"});
-    }
+    Hotel.findByIdAndUpdate(id, body, (err, HotelUpdated) => {
+        if(err) {
+            res.status(400).json({
+                ok: false,
+                err
+            })
+        }
 
-    res.status(200).json({"Status": `Hotel ${params.id} actualizado correctamente`});
+        res.status(200).json(HotelUpdated);
+    });
+
+    // let hotel = getSingleHotel(params.id);
+    
+    // if((hotel.length === 0) || !hotel[0].id) {
+    //     res.status(400).json({"Error": "Hotel inválido"});
+    // }
+
+    // res.status(200).json({"Status": `Hotel ${params.id} actualizado correctamente`});
 };
 
 let deleteHotel = (req,res) => {

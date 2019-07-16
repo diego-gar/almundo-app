@@ -25,8 +25,8 @@ app.get('/hotels/:id', function(req, res) {
     getHotel(req, res);
 });
 
-app.put('/hotels/hotel', function(req, res) {
-    updateHotel(req.query, res);
+app.put('/hotels/:id', function(req, res) {
+    updateHotel(req, res);
 });
 
 app.delete('/hotels/:id', function(req, res) {
