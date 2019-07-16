@@ -1,17 +1,8 @@
-const dataJson = require("./data/data.json");
-const { validateName, validatePrice, validateStars, validateLimit} = require("./validator");
 const Hotel = require('../models/hotel');
 require('../config/config');
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
-
-
-let getAllHotels = (res) => {
-    return {
-        "hotels" : dataJson
-    };
-}
 
 let getAll = (req, res) => {
 
@@ -26,7 +17,7 @@ let getAll = (req, res) => {
         .exec((err, hoteles) => {
             if(err) {
                 res.status(400).json({
-                    ok: false,
+                    status: false,
                     err
                 })
             }
@@ -35,18 +26,19 @@ let getAll = (req, res) => {
         })
 }
 
-let getSingleHotel = id => {
-    return getAllHotels().hotels.filter(hotel => {
-        return id === hotel.id;
-    });
-};
-
 let getHotel = (req,res) => {
-    Hotel.findById(req.params.id, (err, hotelDB) => {
+    Hotel.findOne({'id': req.params.id}, (err, hotelDB) => {
         if(err) {
             res.status(400).json({
-                ok: false,
+                status: false,
                 err
+            })
+        }
+
+        if(!hotelDB) {
+            res.status(400).json({
+                status: false,
+                message: "Hotel no encontrado"
             })
         }
 
@@ -57,21 +49,21 @@ let getHotel = (req,res) => {
 let addHotel = (params,res) => {
     if(!params.name) {
         res.status(400).json({
-            ok: false,
+            status: false,
             message: "El hotel debe tener un nombre"}
             );
     }
 
     if(!params.stars) {
         res.status(400).json({
-            ok: false,
+            status: false,
             message: "El hotel debe tener estrellas"}
             );
     }
 
     if(!params.price) {
         res.status(400).json({
-            ok: false,
+            status: false,
             message: "El hotel debe tener un precio"}
             );
     }
@@ -87,7 +79,7 @@ let addHotel = (params,res) => {
     hotel.save((err, hotelDB) => {
         if(err) {
             res.status(400).json({
-                ok: false,
+                status: false,
                 err
             })
         }
@@ -100,38 +92,30 @@ let updateHotel = (req,res) => {
     let id = req.params.id;
     let body = req.body;
     
-    Hotel.findByIdAndUpdate(id, body, (err, HotelUpdated) => {
+    Hotel.findOneAndUpdate({"id": id}, body, (err, HotelUpdated) => {
         if(err) {
             res.status(400).json({
-                ok: false,
+                status: false,
                 err
             })
         }
 
         res.status(200).json(HotelUpdated);
     });
-
-    // let hotel = getSingleHotel(params.id);
-    
-    // if((hotel.length === 0) || !hotel[0].id) {
-    //     res.status(400).json({"Error": "Hotel inválido"});
-    // }
-
-    // res.status(200).json({"Status": `Hotel ${params.id} actualizado correctamente`});
 };
 
 let deleteHotel = (req,res) => {
-    Hotel.findByIdAndRemove(req.params.id, (err , hotelDeleted) => {
+    Hotel.findOneAndRemove({"id": req.params.id}, (err , hotelDeleted) => {
         if(err) {
             res.status(400).json({
-                ok: false,
+                status: false,
                 err
             })
         }
-
+        
         if(!hotelDeleted) {
             res.status(400).json({
-                ok: false,
+                status: false,
                 message: "Hotel no encontrado"
             })
         }
@@ -140,26 +124,39 @@ let deleteHotel = (req,res) => {
     });
 };
 
-let getFilteredHotels = params => {
-    let cantidadHoteles = 0;
-    
-    return getAllHotels().hotels.filter(hotel => {
-        if(
-            validateName(hotel, params) && 
-            validateStars(hotel, params) && 
-            validatePrice(hotel, params) &&
-            validateLimit(cantidadHoteles)
-        ) {
-            cantidadHoteles++;
-            return true;
-        }
+let getFilteredHotels = (req, res) => {
+    let from = req.query.from || 0;
+    from = Number(from);
 
-        return false;
-    });
+    let limit = req.query.limit || 20;
+    limit = Number(limit);
+
+    let name = req.query.name || "";
+    const userRegex = new RegExp(name, 'i');
+    
+    let stars;
+
+    if(req.query.stars && !req.query.stars.includes(0)) {
+        stars = req.query.stars.split(",").map(elem => parseInt(elem.trim()));
+    } else {
+        stars = [1,2,3,4,5];
+    }
+
+    Hotel.find({name: userRegex, stars: stars})
+        .skip(from)
+        .limit(limit)
+        .exec((err, hoteles) => {
+            if(err) {
+                res.status(400).json({
+                    status: false,
+                    err
+                })
+            }
+            res.status(200).json(hoteles);
+    })
 }
 
 module.exports = {
-    getAllHotels,
     getFilteredHotels,
     getHotel,
     addHotel,

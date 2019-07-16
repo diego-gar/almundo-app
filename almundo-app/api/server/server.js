@@ -1,5 +1,5 @@
 require('./config/config');
-const { getAll, getFilteredHotels, getHotel, addHotel, updateHotel, deleteHotel } = require('./mockData/dataHandler');
+const { getAll, getFilteredHotels, getHotel, addHotel, updateHotel, deleteHotel } = require('./data/dataHandler');
 const express = require('express');
 const app = express();
 var cors = require('cors')
@@ -18,7 +18,7 @@ app.get('/hotels/all', function(req, res) {
 });
 
 app.get('/hotels/search', function(req, res) {
-    getFilteredHotels(req.query);
+    getFilteredHotels(req, res);
 });
 
 app.get('/hotels/:id', function(req, res) {
@@ -33,7 +33,7 @@ app.delete('/hotels/:id', function(req, res) {
     deleteHotel(req, res);
 });
 
-app.post('/hotels/hotel', function(req, res) {
+app.post('/hotels', function(req, res) {
     addHotel(req.query, res);
 });
 
