@@ -1,4 +1,4 @@
-const dataJson = require("../api/server/mockData/data/data.json");
+const dataJson = require("../api/server/data/data/data.json.js");
 const Hotel = require('../api/server/models/hotel');
 require('../api/server/config/config');
 const mongoose = require('mongoose');

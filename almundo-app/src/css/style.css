@@ -252,3 +252,53 @@ body div span span {
     margin-left: 8px;
     vertical-align: middle;
 }
+
+@media screen and (max-width: 1230px) {
+    body div .hoteles {
+        width: fit-content;
+    }
+    body div .contenedor {
+        width: 745px;
+    }
+    body div .contenedor div:nth-child(1) {
+        width: 230px;
+    }
+    body div .contenedor div:nth-child(2) {
+        width: 270px;
+    }
+    body div .contenedor > div:last-child {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    body div .hoteles {
+        width: fit-content;
+    }
+    body div .contenedor {
+        width: 600px;
+    }
+    body div .contenedor div:nth-child(1) {
+        width: 200px;
+    }
+    body div .contenedor div:nth-child(2) {
+        width: 150px;
+    }
+    body div .contenedor > div:last-child {
+        width: 200px;
+    }
+}
+@media screen and (max-width: 930px) {
+    body div .filtros div {
+        width: 210px;
+    }
+    body div .filtros span {
+        width: 212px;
+    }
+    body div .filtros > div > button {
+        margin-top: 6px;
+    }
+    body div .contenedor {
+        min-width: 600px;
+    }
+}

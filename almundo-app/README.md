@@ -20,6 +20,8 @@ Para generar versión productiva de la aplicación con minificacion de archivos.
 ### `Express`
 ### `NPM`
 ### `Nodemon`
+### `MongoDB`
+### `Mongoose`
 
 ### Aclaraciones
 #### Se toma como limite un total de 20 resultados
