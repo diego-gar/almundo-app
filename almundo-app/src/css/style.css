@@ -17,22 +17,22 @@ body {
     font-family: sans-serif;
     margin: 0px;
 }
-body > div > span > a{
+body > div > div > span > a{
     text-decoration: none;
     color: #4c4ccc; 
 }
-body > div > span > a > i{
+body > div > div > span > a > i{
     margin-bottom: 2px;
 }
-body > div > div.ordenar{
+body > div > div > div.ordenar{
     padding: 25px 10px 10px 0px;
     text-align: center;
 }
-body > div > div.ordenar select{
+body > div > div > div.ordenar select{
     padding: 4px 4px;
     background-color: white;
 }
-body > div > span {
+body > div > div > span {
     position: relative;
     display: block;
     text-align: center;
