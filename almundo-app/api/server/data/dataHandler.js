@@ -3,6 +3,7 @@ require('../config/config');
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 let getAll = (req, res) => {
 
@@ -68,6 +69,13 @@ let addHotel = (req,res) => {
             );
     }
 
+    if(!req.body.id) {
+        return res.status(400).json({
+            status: false,
+            message: "El hotel debe tener un id"}
+            );
+    }
+
     let hotelParams = {
         "name": req.body.name,
         "stars": req.body.stars,
@@ -100,6 +108,13 @@ let updateHotel = (req,res) => {
             return res.status(400).json({
                 status: false,
                 err
+            })
+        }
+
+        if(!HotelUpdated) {
+            return res.status(400).json({
+                status: false,
+                message: "Hotel no encontrado"
             })
         }
 
