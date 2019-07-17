@@ -34,7 +34,7 @@ app.delete('/hotels/:id', function(req, res) {
 });
 
 app.post('/hotels', function(req, res) {
-    addHotel(req.query, res);
+    addHotel(req, res);
 });
 
 app.listen(process.env.PORT, () => {

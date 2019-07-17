@@ -22,69 +22,72 @@ let getAll = (req, res) => {
                 })
             }
 
-            res.status(200).json(hoteles);
+            return res.status(200).json(hoteles);
         })
 }
 
 let getHotel = (req,res) => {
     Hotel.findOne({'id': req.params.id}, (err, hotelDB) => {
         if(err) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 err
             })
         }
 
         if(!hotelDB) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 message: "Hotel no encontrado"
             })
         }
 
-        res.status(200).json(hotelDB);
+        return res.status(200).json(hotelDB);
     });
 };
 
-let addHotel = (params,res) => {
-    if(!params.name) {
-        res.status(400).json({
+let addHotel = (req,res) => {
+    if(!req.body.name) {
+        return res.status(400).json({
             status: false,
             message: "El hotel debe tener un nombre"}
             );
     }
 
-    if(!params.stars) {
-        res.status(400).json({
+    if(!req.body.stars) {
+        return res.status(400).json({
             status: false,
             message: "El hotel debe tener estrellas"}
             );
     }
 
-    if(!params.price) {
-        res.status(400).json({
+    if(!req.body.price) {
+        return res.status(400).json({
             status: false,
             message: "El hotel debe tener un precio"}
             );
     }
 
     let hotelParams = {
-        "name": params.name,
-        "stars": params.stars,
-        "price": params.price,
+        "name": req.body.name,
+        "stars": req.body.stars,
+        "price": req.body.price,
+        "image": req.body.image,
+        "amenities": req.body.amenities,
+        "id": req.body.id
     }
 
     let hotel = new Hotel(hotelParams);
 
     hotel.save((err, hotelDB) => {
         if(err) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 err
             })
         }
 
-        res.status(200).json(hotelDB);
+        return res.status(200).json(hotelDB);
     });
 };
 
@@ -94,33 +97,33 @@ let updateHotel = (req,res) => {
     
     Hotel.findOneAndUpdate({"id": id}, body, (err, HotelUpdated) => {
         if(err) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 err
             })
         }
 
-        res.status(200).json(HotelUpdated);
+        return res.status(200).json(HotelUpdated);
     });
 };
 
 let deleteHotel = (req,res) => {
     Hotel.findOneAndRemove({"id": req.params.id}, (err , hotelDeleted) => {
         if(err) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 err
             })
         }
         
         if(!hotelDeleted) {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false,
                 message: "Hotel no encontrado"
             })
         }
 
-        res.status(200).json(hotelDeleted);
+        return res.status(200).json(hotelDeleted);
     });
 };
 
@@ -152,7 +155,7 @@ let getFilteredHotels = (req, res) => {
                     err
                 })
             }
-            res.status(200).json(hoteles);
+            return res.status(200).json(hoteles);
     })
 }
 

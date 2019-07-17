@@ -23,7 +23,7 @@ let hotelsSchema = new Schema({
         required: true,
     },
     id: {
-        type: String
+        type: String,
     }
 });
 
