@@ -61,7 +61,7 @@ class HomeComponent extends Component {
         const { hotels, enableSinResultados } = this.state;
 
         return (
-            <body>
+            <body id="contenedor-principal">
                 <HeaderComponent/>
                 <FiltrosComponent onSearchName={this.handleInputName} onSearchStars={this.handleInputStars}/>
                 <ListadoComponent hotels={hotels} enableSinResultados={enableSinResultados}/>

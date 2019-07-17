@@ -140,12 +140,12 @@ body div .contenedor div > span img.star {
     margin-right: 2px;
     width: 0px;
 }
-body div .filtros div {
+div .filtros div {
     display: inline-block;
     position: relative;
     padding: 5px;
 }
-body div .filtros {
+div .filtros {
     display: inline-block;
     text-decoration: none;
     margin-top: 16px;
@@ -164,7 +164,7 @@ body div .hoteles span.sin-resultados{
     width: 470px;
     display: block;
 }
-body div .filtros span {
+div .filtros span {
     width: 288px;
     padding: 4px 4px;
     height: 30px;
@@ -173,37 +173,37 @@ body div .filtros span {
     text-align: left;
     font-size: 16px;
 }
-body div .filtros span p {
+div .filtros span p {
     margin: 6px 0px 0px 10px;
     font-size: 15px;
     cursor: default;
 }
-body div .filtros div {
+div .filtros div {
     background-color: white;
     width: 286px;
 }
-body div .filtros > span > label {
+div .filtros > span > label {
     color: #2474bd;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
     margin-top: 6px; 
 }
-body div .filtros > div > input {
+div .filtros > div > input {
     padding: 8px 4px;
     margin-left: 16px;
     width: 154px;
     height: 10px;
 }
-body div .filtros > div > label > input {
+div .filtros > div > label > input {
     margin-right: 10px;
 }
-body div .filtros > div > label > input[type='checkbox']::after {
+div .filtros > div > label > input[type='checkbox']::after {
     background: #5F95FC;
 	content: none;
     color: #fff;
 }
-body div .filtros > div > button {
+div .filtros > div > button {
     background-color: #111186;
     color: white;
     cursor: pointer;
@@ -214,30 +214,30 @@ body div .filtros > div > button {
     font-weight: 700;
     border: none;
 }
-body div .filtros div label {
+div .filtros div label {
     display: block;
     margin-bottom: 12px;
     margin-left: 8px;
 }
-body div .filtros div label.all-stars{
+div .filtros div label.all-stars{
     font-weight: 700;
     font-size: 14px;
 }
-body div .filtros img.star.principal {
+div .filtros img.star.principal {
     background-color: #2474bd;
     vertical-align: middle;
     padding: 16px 2px 0px 16px;
     text-align: center;
     margin: 0px 8px 4px 8px;
 }
-body div .filtros img.star {
+div .filtros img.star {
     background-color: #ffb500cf;
     -webkit-mask:  url(/icons/filters/star.svg) no-repeat;
     mask: url(/icons/filters/star.svg) no-repeat;
     padding: 14px 0px 0px 14px;
     margin-right: 4px;
 }
-body div .filtros img.search {
+div .filtros img.search {
     background-color: #2474bd;
     vertical-align: middle;
     padding: 16px 2px 0px 16px;
@@ -289,16 +289,24 @@ body div span span {
     }
 }
 @media screen and (max-width: 930px) {
-    body div .filtros div {
+    body .filtros div {
         width: 210px;
     }
-    body div .filtros span {
+    body .filtros span {
         width: 212px;
     }
-    body div .filtros > div > button {
+    body .filtros > div > button {
         margin-top: 6px;
     }
     body div .contenedor {
-        min-width: 600px;
+        width: 600px;
+    }
+}
+@media screen and (max-width: 860px) {
+    body div .hoteles {
+        margin-left: 10px;
+    }
+    body > div {
+        width: max-content;
     }
 }
